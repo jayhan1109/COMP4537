@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  width: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+body {
+  height: 100vh;
+  background: #eee;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #ffce00;
+}
+
+/* utils */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.title {
+  background-color: #ffce00;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.title h1 {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-size: 5rem;
+}
+
+.title p {
+  font-family: "Roboto", sans-serif;
+  color: #484d5c;
+}
+
+.img_box {
+  max-width: 400px;
+  margin: 2rem 0;
+}
+
+.course_list {
+  padding-top: 1.5rem;
+}
+
+.course_list h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 4rem;
+  color: #ffce00;
+  padding-bottom: 1rem;
+}
+
+.course_list ul {
+  text-decoration: none;
+  list-style: none;
+}
+
+.course_list li {
+  padding: 0.5rem 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+}
