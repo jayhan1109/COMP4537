@@ -20,11 +20,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #143D59;
+  color: black;
 }
 
 a:visited {
-  color: #143D59;
+  color: black;
 }
 
 a:hover {
@@ -35,6 +35,7 @@ a:hover {
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  padding-bottom: 3rem;
 }
 
 .flex {
@@ -45,6 +46,14 @@ a:hover {
 
 .flex-col {
   flex-direction: column;
+}
+
+.red {
+  color: red;
+}
+
+.blue {
+  color: blue;
 }
 
 .title {
@@ -60,27 +69,54 @@ a:hover {
   font-size: 5rem;
 }
 
-.course_list {
+.quiz_list {
   padding-top: 1.5rem;
 }
 
-.course_list h2 {
+.quiz_list h2 {
   font-family: "Oswald", sans-serif;
   font-size: 4rem;
-  color: #ffce00;
+  color: #ffb200;
   padding-bottom: 1rem;
 }
 
-.course_list ul {
-  text-decoration: none;
-  list-style: none;
+.btn_div{
+  max-width: 500px;
+  max-height: 100px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
 }
 
-.course_list li {
-  padding: 0.5rem 0;
+.btn_div a {
   font-family: "Roboto", sans-serif;
-  font-size: 1.3rem;
-  color: #143D59;
+  padding: 0.7rem 1.2rem;
+  font-size: 2rem;
+  background: #143D59;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.1s;
+  -webkit-transition: transform 0.1s;
+  -moz-transition: transform 0.1s;
+  -ms-transition: transform 0.1s;
+  -o-transition: transform 0.1s;
+}
+
+.btn_div a:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
 }
 
 .back_btn {
@@ -109,7 +145,6 @@ a:hover {
 }
 
 .back_btn:hover {
-  color: #ffffff;
   transform: scale(1.1);
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);

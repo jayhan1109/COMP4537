@@ -1,217 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COMP4537</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>COMP4537</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/style.css"/>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="title">
-      <h1>Lab1 | Hard-Coded-Quiz</h1>
-    </div>
-    <div class="container">
-      <div class="flex flex-col quiz_list">
-        <h2>Quiz Lists</h2>
-        <div class="quiz">
-          <p class="quiz_title">
-            1) What is the output of the following script?
-          </p>
-          <br />
-          <div class="quiz_question">
-            <div>
-              <span class="red">let</span> firstName =
-              <span class="red">null</span>;
-            </div>
-            <div>
-              <span class="red">let</span> lastName =
-              <span class="red">null</span>;
-            </div>
-            <div><span class="red">let</span> nickName = "Supercoder";</div>
-            <div>
-              <span class="blue">console</span>.log(firstName ?? lastName ??
-              nickName ?? "Anonymous");
-            </div>
-          </div>
-          <br />
-          <div class="mc">
-            <div><input type="radio" name="q1" value="a" /> a) null</div>
-            <div><input type="radio" name="q1" value="b" /> b) "Anonymous"</div>
-            <div><input type="radio" name="q1" value="c" /> c) undefined</div>
-            <div>
-              <input type="radio" name="q1" value="d" /> d) "Supercoder"
-            </div>
-          </div>
-          <br />
-          <br />
-          <div class="answer">
-            <p>Answer : d</p>
-          </div>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+<div class="title">
+  <h1>Lab1 | Hard-Coded-Quiz</h1>
+</div>
+<div class="container">
+  <div class="flex flex-col quiz_list">
+    <h2>Quiz Lists</h2>
+    <div class="quiz">
+      <p class="quiz_title">
+        1) What is the output of the following script?
+      </p>
+      <br/>
+      <div class="quiz_question">
+        <div>
+          <span class="red">let</span> firstName =
+          <span class="red">null</span>;
         </div>
-        <hr />
-        <div class="quiz">
-          <p class="quiz_title">
-            2) What is the output of the following script?
-          </p>
-          <br />
-          <div class="quiz_question">
-            <div>
-              <div><span class="red">let</span> sum = (a, b) => {</div>
-              <div>&emsp;<span class="red">let</span> result = a + b;</div>
-              <div>&emsp;<span class="blue">return</span> result;</div>
-              }
-            </div>
-            <div><span class="blue">console</span>.log(sum(1,2));</div>
-          </div>
-          <br />
-          <div class="mc">
-            <div><input type="radio" name="q2" value="a" /> a) 3</div>
-            <div><input type="radio" name="q2" value="b" /> b) 5</div>
-            <div><input type="radio" name="q2" value="c" /> c) 2</div>
-            <div><input type="radio" name="q2" value="d" /> d) 6</div>
-          </div>
-          <br />
-          <br />
-          <div class="answer">
-            <p>Answer : a</p>
-          </div>
+        <div>
+          <span class="red">let</span> lastName =
+          <span class="red">null</span>;
         </div>
-        <hr />
-        <div class="quiz">
-          <p class="quiz_title">
-            3) What is the output of the following script?
-          </p>
-          <br />
-          <div class="quiz_question">
-            <div>
-              <div><span class="red">let</span> multiply = (a, b) => {</div>
-              <div>&emsp;<span class="red">let</span> result = a * b;</div>
-              <div>&emsp;<span class="blue">return</span> result;</div>
-              }
-            </div>
-            <div><span class="blue">console</span>.log(multiply(4,5));</div>
-          </div>
-          <br />
-          <div class="mc">
-            <div><input type="radio" name="4" value="a" /> a) 19</div>
-            <div><input type="radio" name="4" value="b" /> b) 20</div>
-            <div><input type="radio" name="4" value="c" /> c) 24</div>
-            <div><input type="radio" name="4" value="d" /> d) 18</div>
-          </div>
-          <br />
-          <br />
-          <div class="answer">
-            <p>Answer : b</p>
-          </div>
+        <div><span class="red">let</span> nickName = "Supercoder";</div>
+        <div>
+          <span class="blue">console</span>.log(firstName ?? lastName ??
+          nickName ?? "Anonymous");
         </div>
-        <hr />
-        <div class="quiz">
-          <p class="quiz_title">
-            4) What is the output of the following script?
-          </p>
-          <br />
-          <div class="quiz_question">
-            <div>
-              <span class="red">let</span> firstName =
-              <span class="red">null</span>;
-            </div>
-            <div>
-              <span class="red">let</span> lastName =
-              <span class="red">null</span>;
-            </div>
-            <div><span class="red">let</span> nickName = "Supercoder";</div>
-            <div>
-              <span class="blue">console</span>.log(firstName || lastName ||
-              nickName || "Anonymous");
-            </div>
-          </div>
-          <br />
-          <div class="mc">
-            <div><input type="radio" name="q1" value="a" /> a) null</div>
-            <div><input type="radio" name="q1" value="b" /> b) "Anonymous"</div>
-            <div><input type="radio" name="q1" value="c" /> c) undefined</div>
-            <div>
-              <input type="radio" name="q1" value="d" /> d) "Supercoder"
-            </div>
-          </div>
-          <br />
-          <br />
-          <div class="answer">
-            <p>Answer : d</p>
-          </div>
+      </div>
+      <br/>
+      <div class="mc">
+        <div><input type="radio" name="q1" value="a"/> a) null</div>
+        <div><input type="radio" name="q1" value="b"/> b) "Anonymous"</div>
+        <div><input type="radio" name="q1" value="c"/> c) undefined</div>
+        <div>
+          <input type="radio" name="q1" value="d"/> d) "Supercoder"
         </div>
-        <hr />
-        <div class="quiz">
-          <p class="quiz_title">
-            5) What is the output of the following script?
-          </p>
-          <br />
-          <div class="quiz_question">
-            <div>
-              <span class="red">let</span> height =
-              <span class="red">null</span>;
-            </div>
-            <div>
-              <span class="red">let</span> width =
-              <span class="red">null</span>;
-            </div>
-            <div>
-              <span class="red">let</span> area = (height ?? 100) * (width ??
-              50);
-            </div>
-            <div><span class="blue">console</span>.log(area);</div>
-          </div>
-          <br />
-          <div class="mc">
-            <div><input type="radio" name="q1" value="a" /> a) null</div>
-            <div><input type="radio" name="q1" value="b" /> b) 5000</div>
-            <div><input type="radio" name="q1" value="c" /> c) undefined</div>
-            <div><input type="radio" name="q1" value="d" /> d) 1500</div>
-          </div>
-          <br />
-          <br />
-          <div class="answer">
-            <p>Answer : b</p>
-          </div>
-        </div>
-        <hr />
-        <div class="quiz">
-          <p class="quiz_title">
-            6) What is the output of the following script?
-          </p>
-          <br />
-          <div class="quiz_question">
-            <div><span class="red">let</span> x = (1 && 2) ?? 3;</div>
-            <div><span class="blue">console</span>.log(x);</div>
-          </div>
-          <br />
-          <div class="mc">
-            <div><input type="radio" name="q1" value="a" /> a) 1</div>
-            <div><input type="radio" name="q1" value="b" /> b) 3</div>
-            <div><input type="radio" name="q1" value="c" /> c) 2</div>
-            <div><input type="radio" name="q1" value="d" /> d) null</div>
-          </div>
-          <br />
-          <br />
-          <div class="answer">
-            <p>Answer : c</p>
-          </div>
-        </div>
-        <a href="../../../COMP4537.html" class="back_btn">BACK</a>
+      </div>
+      <br/>
+      <br/>
+      <div class="answer">
+        <p>Answer : d</p>
       </div>
     </div>
-  </body>
+    <hr/>
+    <div class="quiz">
+      <p class="quiz_title">
+        2) What is the output of the following script?
+      </p>
+      <br/>
+      <div class="quiz_question">
+        <div>
+          <div><span class="red">let</span> sum = (a, b) => {</div>
+          <div>&emsp;<span class="red">let</span> result = a + b;</div>
+          <div>&emsp;<span class="blue">return</span> result;</div>
+          }
+        </div>
+        <div><span class="blue">console</span>.log(sum(1,2));</div>
+      </div>
+      <br/>
+      <div class="mc">
+        <div><input type="radio" name="q2" value="a"/> a) 3</div>
+        <div><input type="radio" name="q2" value="b"/> b) 5</div>
+        <div><input type="radio" name="q2" value="c"/> c) 2</div>
+        <div><input type="radio" name="q2" value="d"/> d) 6</div>
+      </div>
+      <br/>
+      <br/>
+      <div class="answer">
+        <p>Answer : a</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="quiz">
+      <p class="quiz_title">
+        3) What is the output of the following script?
+      </p>
+      <br/>
+      <div class="quiz_question">
+        <div>
+          <div><span class="red">let</span> multiply = (a, b) => {</div>
+          <div>&emsp;<span class="red">let</span> result = a * b;</div>
+          <div>&emsp;<span class="blue">return</span> result;</div>
+          }
+        </div>
+        <div><span class="blue">console</span>.log(multiply(4,5));</div>
+      </div>
+      <br/>
+      <div class="mc">
+        <div><input type="radio" name="4" value="a"/> a) 19</div>
+        <div><input type="radio" name="4" value="b"/> b) 20</div>
+        <div><input type="radio" name="4" value="c"/> c) 24</div>
+        <div><input type="radio" name="4" value="d"/> d) 18</div>
+      </div>
+      <br/>
+      <br/>
+      <div class="answer">
+        <p>Answer : b</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="quiz">
+      <p class="quiz_title">
+        4) What is the output of the following script?
+      </p>
+      <br/>
+      <div class="quiz_question">
+        <div>
+          <span class="red">let</span> firstName =
+          <span class="red">null</span>;
+        </div>
+        <div>
+          <span class="red">let</span> lastName =
+          <span class="red">null</span>;
+        </div>
+        <div><span class="red">let</span> nickName = "Supercoder";</div>
+        <div>
+          <span class="blue">console</span>.log(firstName || lastName ||
+          nickName || "Anonymous");
+        </div>
+      </div>
+      <br/>
+      <div class="mc">
+        <div><input type="radio" name="q1" value="a"/> a) null</div>
+        <div><input type="radio" name="q1" value="b"/> b) "Anonymous"</div>
+        <div><input type="radio" name="q1" value="c"/> c) undefined</div>
+        <div>
+          <input type="radio" name="q1" value="d"/> d) "Supercoder"
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="answer">
+        <p>Answer : d</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="quiz">
+      <p class="quiz_title">
+        5) What is the output of the following script?
+      </p>
+      <br/>
+      <div class="quiz_question">
+        <div>
+          <span class="red">let</span> height =
+          <span class="red">null</span>;
+        </div>
+        <div>
+          <span class="red">let</span> width =
+          <span class="red">null</span>;
+        </div>
+        <div>
+          <span class="red">let</span> area = (height ?? 100) * (width ??
+          50);
+        </div>
+        <div><span class="blue">console</span>.log(area);</div>
+      </div>
+      <br/>
+      <div class="mc">
+        <div><input type="radio" name="q1" value="a"/> a) null</div>
+        <div><input type="radio" name="q1" value="b"/> b) 5000</div>
+        <div><input type="radio" name="q1" value="c"/> c) undefined</div>
+        <div><input type="radio" name="q1" value="d"/> d) 1500</div>
+      </div>
+      <br/>
+      <br/>
+      <div class="answer">
+        <p>Answer : b</p>
+      </div>
+    </div>
+    <hr/>
+    <div class="quiz">
+      <p class="quiz_title">
+        6) What is the output of the following script?
+      </p>
+      <br/>
+      <div class="quiz_question">
+        <div><span class="red">let</span> x = (1 && 2) ?? 3;</div>
+        <div><span class="blue">console</span>.log(x);</div>
+      </div>
+      <br/>
+      <div class="mc">
+        <div><input type="radio" name="q1" value="a"/> a) 1</div>
+        <div><input type="radio" name="q1" value="b"/> b) 3</div>
+        <div><input type="radio" name="q1" value="c"/> c) 2</div>
+        <div><input type="radio" name="q1" value="d"/> d) null</div>
+      </div>
+      <br/>
+      <br/>
+      <div class="answer">
+        <p>Answer : c</p>
+      </div>
+    </div>
+    <a href="../../../COMP4537.html" class="back_btn">BACK</a>
+  </div>
+</div>
+</body>
 </html>
