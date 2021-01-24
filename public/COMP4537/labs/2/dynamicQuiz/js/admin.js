@@ -225,5 +225,6 @@ function autoSave() {
   saveTxt.innerHTML = saveState;
   saveTxt.classList.add("auto_saved");
   saveTxt.classList.remove("auto_unsaved");
+  // alert("saved");
   updateStorage();
 }
