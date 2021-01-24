@@ -89,6 +89,8 @@ Or load an empty Question element
 window.addEventListener("load", () => {
   let questions = JSON.parse(localStorage.getItem("questions"));
   saveTxt.innerHTML = "Unsaved Changes";
+  saveTxt.classList.add("auto_unsaved");
+  saveTxt.classList.remove("auto_saved");
   if (questions && questions.length !== 0) {
     console.log(questions);
     questionLen = 0;
@@ -143,6 +145,8 @@ addBtn.addEventListener("click", () => {
   addQuestion(questionLen + 1);
   questionLen++;
   saveTxt.innerHTML = "Unsaved Changes";
+  saveTxt.classList.add("auto_unsaved");
+  saveTxt.classList.remove("auto_saved");
   updateStorage();
 });
 
@@ -152,6 +156,8 @@ Save button click event
  */
 saveBtn.addEventListener("click", () => {
   saveTxt.innerHTML = "Saved";
+  saveTxt.classList.add("auto_saved");
+  saveTxt.classList.remove("auto_unsaved");
   updateStorage();
 });
 
@@ -176,5 +182,7 @@ Function for saving
 */
 function autoSave() {
   saveTxt.innerHTML = "Saved";
+  saveTxt.classList.add("auto_saved");
+  saveTxt.classList.remove("auto_unsaved");
   updateStorage();
 }

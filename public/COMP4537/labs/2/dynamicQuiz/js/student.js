@@ -6,7 +6,6 @@ let questionLen = 0;
 let score = 0;
 const answerList = [];
 
-
 /*
 Create an question
  */
@@ -21,7 +20,7 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizDiv.appendChild(document.createElement("br"));
 
   const divQuestion = document.createElement("div");
-  divQuestion.className = "textarea quiz_question";
+  divQuestion.className = "textarea quiz_question textDivQuestion";
   divQuestion.rows = 5;
   divQuestion.cols = 50;
   divQuestion.innerHTML = `${question}`;
@@ -49,7 +48,7 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
     input.name = `q${num}`;
     input.required = true;
 
-    div.className = "choice";
+    div.className = "choice textDivOption";
     div.rows = 1;
     div.cols = 30;
     div.innerHTML = `${options[i] || ""}`;
@@ -62,7 +61,6 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   console.log(quizDiv);
   return quizDiv;
 };
-
 
 /*
 Add new question
@@ -84,11 +82,21 @@ window.addEventListener("load", () => {
     console.log(questions);
     for (let i = 0; i < questions.length; i++) {
       const currentAnswer = questions[i].answer;
-      const options = [highlightSyntax(questions[i].option1), highlightSyntax(questions[i].option2), highlightSyntax(questions[i].option3), highlightSyntax(questions[i].option4)];
-      addQuestion(i + 1, highlightSyntax(questions[i].question), options, currentAnswer);
+      const options = [
+        highlightSyntax(questions[i].option1),
+        highlightSyntax(questions[i].option2),
+        highlightSyntax(questions[i].option3),
+        highlightSyntax(questions[i].option4),
+      ];
+      addQuestion(
+        i + 1,
+        highlightSyntax(questions[i].question),
+        options,
+        currentAnswer
+      );
       answerList.push(currentAnswer);
       questionLen = questions.length;
-      scoreTxt.textContent = `SCORE - ${score}/${questionLen}`
+      scoreTxt.textContent = `SCORE - ${score}/${questionLen}`;
     }
   } else {
     // TODO: error message
@@ -105,10 +113,12 @@ window.addEventListener("load", () => {
  Highlight reserved words in red
 */
 function highlightSyntax(text) {
-
   let newText = "";
   newText = text.replace(/(\r\n|\n|\r)/gm, "<br>");
-  newText = newText.replace(/let|var|const|{|}|\(|\)|\+|\-|\*|\/|\=/gi, (x) => `<span class="reserved">${x}</span>`);
+  newText = newText.replace(
+    /let|var|const|{|}|\(|\)|\+|\-|\*|\/|\=/gi,
+    (x) => `<span class="reserved">${x}</span>`
+  );
 
   console.log(newText);
   return newText;
