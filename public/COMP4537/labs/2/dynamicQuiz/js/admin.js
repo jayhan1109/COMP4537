@@ -84,6 +84,20 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
 };
 
 /*
+Question Object Constructor
+*/
+function QuestionObject(num, question = "", option1, option2, option3, option4, answer = -1) {
+  
+  this.num = num;
+  this.question = question;
+  this.option1 = option1;
+  this.option2 = option2;
+  this.option3 = option3;
+  this.option4 = option4;
+  this.answer = answer;
+}
+
+/*
 Add new question
  */
 const addQuestion = (num, question = "", options = [], answer = -1) => {
@@ -137,26 +151,30 @@ const updateStorage = () => {
   let questionNum;
 
   for (let i = 0; i < questions.length; i++) {
-    const questionObj = {};
+
+    let questionObj;
 
     if (!questions[i].children[2].value)
       continue;
 
     questionNum = "q" + (i + 1);
 
-    questionObj.question = questions[i].children[2].value;
-    questionObj.option1 = questions[i].children[5].children[0].children[1].value;
-    questionObj.option2 = questions[i].children[5].children[1].children[1].value;
-    questionObj.option3 = questions[i].children[5].children[2].children[1].value;
-    questionObj.option4 = questions[i].children[5].children[3].children[1].value;
+    let question = questions[i].children[2].value;
+    let option1 = questions[i].children[5].children[0].children[1].value;
+    let option2 = questions[i].children[5].children[1].children[1].value;
+    let option3 = questions[i].children[5].children[2].children[1].value;
+    let option4 = questions[i].children[5].children[3].children[1].value;
 
     const options = document.getElementsByName(`${questionNum}`);
 
-    questionObj.answer = Array.from(options.values()).findIndex((o) => o.checked);
+    let answer = Array.from(options.values()).findIndex((o) => o.checked);
+    questionObj = new QuestionObject(questionNum, question, option1, option2, option3, option4, answer);
 
+    console.log(questionObj);
     arr.push(questionObj);
   }
 
+  
   localStorage.setItem("questions", JSON.stringify(arr));
 };
 
@@ -198,7 +216,7 @@ deleteBtn.addEventListener("click", () => {
 /*
 Autosaves contents every 2 seconds
 */
-let saveTimer = setInterval(autoSave, 2000);
+// let saveTimer = setInterval(autoSave, 5000);
 
 /*
 Function for saving
