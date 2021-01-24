@@ -1,17 +1,27 @@
+/*
+Query selectors
+*/
 const quizList = document.querySelector(".quiz_list");
 const btnContainer = document.querySelector(".btn_container");
 const submitBtn = document.querySelector(".btn_submit");
 const scoreTxt = document.querySelector(".score");
+
+/*
+Initial values
+*/
 let questionLen = 0;
 let score = 0;
 const answerList = [];
 
 /*
-Create an question
+Create a question
  */
 const getQuestion = (num, question = "", options = [], answer = -1) => {
+
+  // creates div block that holds each question
   const quizDiv = document.createElement("div");
 
+  // question number and title
   const quizTitle = document.createElement("p");
   quizDiv.className = "quiz";
   quizDiv.appendChild(quizTitle);
@@ -19,6 +29,7 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizTitle.innerText = `Question ${num}`;
   quizDiv.appendChild(document.createElement("br"));
 
+  // text area for question
   const divQuestion = document.createElement("div");
   divQuestion.className = "textarea quiz_question textDivQuestion";
   divQuestion.rows = 5;
@@ -29,14 +40,17 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizDiv.appendChild(divQuestion);
   quizDiv.appendChild(document.createElement("br"));
 
+  // answer title
   const answerTitle = document.createElement("p");
   answerTitle.innerText = "Answer*";
   quizDiv.appendChild(answerTitle);
 
+  // creates div block that holds mc options
   const mc = document.createElement("div");
   mc.className = "mc";
   quizDiv.appendChild(mc);
 
+  // generates mc choice options
   for (let i = 0; i < 4; i++) {
     const container = document.createElement("div");
     const input = document.createElement("input");
@@ -44,10 +58,12 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
     container.appendChild(input);
     container.appendChild(div);
 
+    // radio button
     input.type = "radio";
     input.name = `q${num}`;
     input.required = true;
 
+    // mc options
     div.className = "choice textDivOption";
     div.rows = 1;
     div.cols = 30;

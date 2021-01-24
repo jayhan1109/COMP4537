@@ -1,14 +1,26 @@
+/*
+Query selectors
+*/
 const quizList = document.querySelector(".quiz_list");
 const btnContainer = document.querySelector(".btn_container");
 const addBtn = document.querySelector(".btn_add");
 const saveBtn = document.querySelector(".btn_save");
 const deleteBtn = document.querySelector(".btn_delete");
 const saveTxt = document.querySelector(".text_save");
-let questionLen = 0;
-
 
 /*
-Create an question
+String variables
+*/
+const saveState = "Saved";
+const unsaveState = "Unsaved";
+
+/*
+Initial values
+*/
+let questionLen = 0;
+
+/*
+Create a question
  */
 const getQuestion = (num, question = "", options = [], answer = -1) => {
 
@@ -43,6 +55,7 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   mc.className = "mc";
   quizDiv.appendChild(mc);
 
+  // generates mc choice options
   for (let i = 0; i < 4; i++) {
     const container = document.createElement("div");
     const input = document.createElement("input");
@@ -81,7 +94,7 @@ const addQuestion = (num, question = "", options = [], answer = -1) => {
 
 /*
 Saves the new line state
-*/
+ */
 function setNewLine(text){
   
   let newText = "";
@@ -98,7 +111,7 @@ Or load an empty Question element
  */
 window.addEventListener("load", () => {
   let questions = JSON.parse(localStorage.getItem("questions"));
-  saveTxt.innerHTML = "Unsaved Changes";
+  saveTxt.innerHTML = unsaveState;
   saveTxt.classList.add("auto_unsaved");
   saveTxt.classList.remove("auto_saved");
   if (questions && questions.length !== 0) {
@@ -154,7 +167,7 @@ Add button click event
 addBtn.addEventListener("click", () => {
   addQuestion(questionLen + 1);
   questionLen++;
-  saveTxt.innerHTML = "Unsaved Changes";
+  saveTxt.innerHTML = unsaveState;
   saveTxt.classList.add("auto_unsaved");
   saveTxt.classList.remove("auto_saved");
   updateStorage();
@@ -165,7 +178,7 @@ addBtn.addEventListener("click", () => {
 Save button click event
  */
 saveBtn.addEventListener("click", () => {
-  saveTxt.innerHTML = "Saved";
+  saveTxt.innerHTML = saveState;
   saveTxt.classList.add("auto_saved");
   saveTxt.classList.remove("auto_unsaved");
   updateStorage();
@@ -191,7 +204,7 @@ let saveTimer = setInterval(autoSave, 2000);
 Function for saving
 */
 function autoSave() {
-  saveTxt.innerHTML = "Saved";
+  saveTxt.innerHTML = saveState;
   saveTxt.classList.add("auto_saved");
   saveTxt.classList.remove("auto_unsaved");
   updateStorage();
