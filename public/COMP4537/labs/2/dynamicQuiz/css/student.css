@@ -83,10 +83,10 @@ button:focus {
   color: brown;
 }
 
+
 .textarea {
   display: block;
   font-family: 'Roboto', sans-serif;
-  /* min-height: 10em; */
   width: 100%;
   padding: 6px 12px;
   font-size: 1.1rem;

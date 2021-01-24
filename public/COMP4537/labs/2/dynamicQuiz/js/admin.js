@@ -3,7 +3,7 @@ const btnContainer = document.querySelector(".btn_container");
 const addBtn = document.querySelector(".btn_add");
 const saveBtn = document.querySelector(".btn_save");
 const deleteBtn = document.querySelector(".btn_delete");
-const saveTxt = document.getElementById("text_save");
+const saveTxt = document.querySelector(".text_save");
 let questionLen = 0;
 
 
@@ -88,6 +88,7 @@ Or load an empty Question element
  */
 window.addEventListener("load", () => {
   let questions = JSON.parse(localStorage.getItem("questions"));
+  saveTxt.innerHTML = "Unsaved Changes";
   if (questions && questions.length !== 0) {
     console.log(questions);
     questionLen = 0;
@@ -141,6 +142,7 @@ Add button click event
 addBtn.addEventListener("click", () => {
   addQuestion(questionLen + 1);
   questionLen++;
+  saveTxt.innerHTML = "Unsaved Changes";
   updateStorage();
 });
 
@@ -149,6 +151,7 @@ addBtn.addEventListener("click", () => {
 Save button click event
  */
 saveBtn.addEventListener("click", () => {
+  saveTxt.innerHTML = "Saved";
   updateStorage();
 });
 
@@ -163,11 +166,15 @@ deleteBtn.addEventListener("click", () => {
   updateStorage();
 });
 
-
 /*
 Autosaves contents every 2 seconds
 */
-setInterval(function () {
-  // saveTxt.innerHTML("saved!");
-  // updateStorage();
-}, 2000);
+let saveTimer = setInterval(autoSave, 2000);
+
+/*
+function for saving
+*/
+function autoSave() {
+  saveTxt.innerHTML = "Saved";
+  updateStorage();
+}

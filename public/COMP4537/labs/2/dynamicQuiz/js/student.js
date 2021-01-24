@@ -20,14 +20,14 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizTitle.innerText = `Question ${num}`;
   quizDiv.appendChild(document.createElement("br"));
 
-  const textareaQuestion = document.createElement("div");
-  textareaQuestion.className = "textarea quiz_question";
-  textareaQuestion.rows = 5;
-  textareaQuestion.cols = 50;
-  textareaQuestion.innerHTML = `${question}`;
-  textareaQuestion.required = true;
-  textareaQuestion.disabled = true;
-  quizDiv.appendChild(textareaQuestion);
+  const divQuestion = document.createElement("div");
+  divQuestion.className = "textarea quiz_question";
+  divQuestion.rows = 5;
+  divQuestion.cols = 50;
+  divQuestion.innerHTML = `${question}`;
+  divQuestion.required = true;
+  divQuestion.disabled = true;
+  quizDiv.appendChild(divQuestion);
   quizDiv.appendChild(document.createElement("br"));
 
   const answerTitle = document.createElement("p");
@@ -41,20 +41,20 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   for (let i = 0; i < 4; i++) {
     const container = document.createElement("div");
     const input = document.createElement("input");
-    const textarea = document.createElement("textarea");
+    const div = document.createElement("div");
     container.appendChild(input);
-    container.appendChild(textarea);
+    container.appendChild(div);
 
     input.type = "radio";
     input.name = `q${num}`;
     input.required = true;
 
-    textarea.className = "choice";
-    textarea.rows = 1;
-    textarea.cols = 30;
-    textarea.innerText = `${options[i] || ""}`;
-    textarea.required = true;
-    textarea.disabled = true;
+    div.className = "choice";
+    div.rows = 1;
+    div.cols = 30;
+    div.innerHTML = `${options[i] || ""}`;
+    div.required = true;
+    div.disabled = true;
 
     mc.appendChild(container);
   }
@@ -84,7 +84,7 @@ window.addEventListener("load", () => {
     console.log(questions);
     for (let i = 0; i < questions.length; i++) {
       const currentAnswer = questions[i].answer;
-      const options = [questions[i].option1, questions[i].option2, questions[i].option3, questions[i].option4];
+      const options = [highlightSyntax(questions[i].option1), highlightSyntax(questions[i].option2), highlightSyntax(questions[i].option3), highlightSyntax(questions[i].option4)];
       addQuestion(i + 1, highlightSyntax(questions[i].question), options, currentAnswer);
       answerList.push(currentAnswer);
       questionLen = questions.length;
@@ -102,14 +102,14 @@ window.addEventListener("load", () => {
 });
 
 /*
- reserved words in red
+ Highlight reserved words in red
 */
 function highlightSyntax(text) {
 
   let newText = "";
 
   newText = text.replace(/(\r\n|\n|\r)/gm, "<br>");
-  newText = newText.replace(/let|var|const|{|}|\(|\)|\+|\-|\*|\/|\=/gi,(x)=>`<span style="color:red">${x}</span>`);
+  newText = newText.replace(/let|var|const|{|}|\(|\)|\+|\-|\*|\/|\=/gi, (x) => `<span style="color:red">${x}</span>`);
 
   console.log(newText);
   return newText;
