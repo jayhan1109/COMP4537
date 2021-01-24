@@ -201,3 +201,7 @@ button:focus {
   background: #ffa100;
   color: #ffffff;
 }
+
+.reserved {
+  color:red;
+}

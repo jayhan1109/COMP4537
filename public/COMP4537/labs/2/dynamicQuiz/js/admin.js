@@ -172,7 +172,7 @@ Autosaves contents every 2 seconds
 let saveTimer = setInterval(autoSave, 2000);
 
 /*
-function for saving
+Function for saving
 */
 function autoSave() {
   saveTxt.innerHTML = "Saved";

@@ -107,9 +107,8 @@ window.addEventListener("load", () => {
 function highlightSyntax(text) {
 
   let newText = "";
-
   newText = text.replace(/(\r\n|\n|\r)/gm, "<br>");
-  newText = newText.replace(/let|var|const|{|}|\(|\)|\+|\-|\*|\/|\=/gi, (x) => `<span style="color:red">${x}</span>`);
+  newText = newText.replace(/let|var|const|{|}|\(|\)|\+|\-|\*|\/|\=/gi, (x) => `<span class="reserved">${x}</span>`);
 
   console.log(newText);
   return newText;
