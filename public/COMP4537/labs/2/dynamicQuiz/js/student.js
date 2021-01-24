@@ -20,11 +20,11 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizTitle.innerText = `Question ${num}`;
   quizDiv.appendChild(document.createElement("br"));
 
-  const textareaQuestion = document.createElement("textarea");
+  const textareaQuestion = document.createElement("div");
   textareaQuestion.className = "textarea quiz_question";
   textareaQuestion.rows = 5;
   textareaQuestion.cols = 50;
-  textareaQuestion.innerText = `${question}`;
+  textareaQuestion.innerHTML = `${question}`;
   textareaQuestion.required = true;
   textareaQuestion.disabled = true;
   quizDiv.appendChild(textareaQuestion);
@@ -73,7 +73,6 @@ const addQuestion = (num, question = "", options = [], answer = -1) => {
   quizList.insertBefore(quiz, btnContainer);
 };
 
-
 /*
 Check Localstorage when the page loads
 If any questions in Localstorage, load them with an extra empty Question element
@@ -86,9 +85,10 @@ window.addEventListener("load", () => {
     for (let i = 0; i < questions.length; i++) {
       const currentAnswer = questions[i].answer;
       const options = [questions[i].option1, questions[i].option2, questions[i].option3, questions[i].option4];
-      addQuestion(i + 1, questions[i].question, options, currentAnswer);
+      addQuestion(i + 1, highlightSyntax(questions[i].question), options, currentAnswer);
       answerList.push(currentAnswer);
       questionLen = questions.length;
+      scoreTxt.textContent = `SCORE - ${score}/${questionLen}`
     }
   } else {
     // TODO: error message
@@ -100,6 +100,20 @@ window.addEventListener("load", () => {
     quizList.insertBefore(errorMsg, btnContainer);
   }
 });
+
+/*
+ reserved words in red
+*/
+function highlightSyntax(text) {
+
+  let newText = "";
+
+  newText = text.replace(/(\r\n|\n|\r)/gm, "<br>");
+  newText = newText.replace(/let|var|const|{|}|\(|\)|\+|\-|\*|\/|\=/gi,(x)=>`<span style="color:red">${x}</span>`);
+
+  console.log(newText);
+  return newText;
+}
 
 /*
 Submit button click event
@@ -129,5 +143,6 @@ submitBtn.addEventListener("click", () => {
     questions[answerList[i]].nextElementSibling.classList.remove("wrong");
   }
 
+  console.log(questionLen);
   scoreTxt.textContent = `SCORE - ${score}/${questionLen}`;
 });
