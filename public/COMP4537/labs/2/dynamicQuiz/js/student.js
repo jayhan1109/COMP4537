@@ -145,29 +145,40 @@ Submit button click event
  */
 submitBtn.addEventListener("click", () => {
   score = 0;
+  let checkedQ = 0;
+
+  // checks how many questions have been checked off
   for (let i = 0; i < questionLen; i++) {
     const questions = document.getElementsByName(`q${i + 1}`);
-
     for (let j = 0; j < questions.length; j++) {
       if (questions[j].checked) {
+        checkedQ++;
+      }
+    }
+  }
+
+  // checks if all the questions have been checked
+  if (checkedQ !== questionLen) {
+    alert("Please complete all the questions");
+  } else {
+
+  // checks if answer is correct or wrong
+  for (let i = 0; i < questionLen; i++) {
+    const questions = document.getElementsByName(`q${i + 1}`);
+    for (let j = 0; j < questions.length; j++) {
+      if (questions[j].checked) {
+        checkedQ++;
         if (answerList[i] === j) {
           questions[j].nextElementSibling.classList.add("answer");
           score++;
         }
         questions[j].nextElementSibling.classList.add("wrong");
-
         break;
       }
     }
-
-    console.log(score);
-
-    console.log(questions[answerList[i]]);
-
     questions[answerList[i]].nextElementSibling.classList.add("answer");
     questions[answerList[i]].nextElementSibling.classList.remove("wrong");
   }
-
-  console.log(questionLen);
   scoreTxt.textContent = `SCORE - ${score}/${questionLen}`;
+}
 });
