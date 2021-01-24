@@ -216,7 +216,7 @@ deleteBtn.addEventListener("click", () => {
 /*
 Autosaves contents every 2 seconds
 */
-// let saveTimer = setInterval(autoSave, 5000);
+let saveTimer = setInterval(autoSave, 5000);
 
 /*
 Function for saving
@@ -225,6 +225,5 @@ function autoSave() {
   saveTxt.innerHTML = saveState;
   saveTxt.classList.add("auto_saved");
   saveTxt.classList.remove("auto_unsaved");
-  // alert("saved");
   updateStorage();
 }
