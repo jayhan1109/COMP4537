@@ -20,7 +20,7 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizDiv.className = "quiz";
   quizDiv.appendChild(quizTitle);
   quizTitle.className = "quiz_title";
-  quizTitle.innerText = `Question ${num}`;
+  quizTitle.innerHTML = `Question ${num}`;
   quizDiv.appendChild(document.createElement("br"));
 
   // text area for question
@@ -28,14 +28,14 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   textareaQuestion.className = "textarea quiz_question";
   textareaQuestion.rows = 5;
   textareaQuestion.cols = 50;
-  textareaQuestion.innerText = `${question}`;
+  textareaQuestion.innerHTML = `${question}`;
   textareaQuestion.required = true;
   quizDiv.appendChild(textareaQuestion);
   quizDiv.appendChild(document.createElement("br"));
 
   // answer title
   const answerTitle = document.createElement("p");
-  answerTitle.innerText = "Answer*";
+  answerTitle.innerHTML = "Answer*";
   quizDiv.appendChild(answerTitle);
 
   // creates div block that holds mc options
@@ -60,7 +60,7 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
     textarea.className = "choice";
     textarea.rows = 1;
     textarea.cols = 30;
-    textarea.innerText = `${options[i] || ""}`;
+    textarea.innerHTML = `${options[i] || ""}`;
     textarea.required = true;
 
     mc.appendChild(container);
@@ -69,7 +69,6 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   console.log(quizDiv);
   return quizDiv;
 };
-
 
 /*
 Add new question
@@ -80,6 +79,17 @@ const addQuestion = (num, question = "", options = [], answer = -1) => {
   quizList.insertBefore(quiz, btnContainer);
 };
 
+/*
+Saves the new line state
+*/
+function setNewLine(text){
+  
+  let newText = "";
+  newText = text.replace(/(\r\n|\n|\r)/gm, "&#13;&#10");
+
+  console.log(newText);
+  return newText;
+}
 
 /*
 Check Localstorage when the page loads
@@ -97,7 +107,7 @@ window.addEventListener("load", () => {
     for (let i = 0; i < questions.length; i++) {
       const options = [questions[i].option1, questions[i].option2, questions[i].option3, questions[i].option4];
       console.log(questions[i].answer);
-      addQuestion(i + 1, questions[i].question, options, questions[i].answer);
+      addQuestion(i + 1, setNewLine(questions[i].question), options, questions[i].answer);
       questionLen++;
     }
   }
