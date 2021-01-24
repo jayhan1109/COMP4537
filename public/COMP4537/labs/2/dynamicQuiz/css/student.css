@@ -83,6 +83,7 @@ button:focus {
   color: brown;
 }
 
+
 .textarea {
   display: block;
   font-family: 'Roboto', sans-serif;
@@ -199,4 +200,8 @@ button:focus {
 .back_btn:hover {
   background: #ffa100;
   color: #ffffff;
+}
+
+.reserved {
+  color:red;
 }

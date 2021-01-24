@@ -3,6 +3,7 @@ const btnContainer = document.querySelector(".btn_container");
 const addBtn = document.querySelector(".btn_add");
 const saveBtn = document.querySelector(".btn_save");
 const deleteBtn = document.querySelector(".btn_delete");
+const saveTxt = document.querySelector(".text_save");
 let questionLen = 0;
 
 
@@ -10,8 +11,11 @@ let questionLen = 0;
 Create an question
  */
 const getQuestion = (num, question = "", options = [], answer = -1) => {
+
+  // creates div block that holds each question
   const quizDiv = document.createElement("div");
 
+  // question number and title
   const quizTitle = document.createElement("p");
   quizDiv.className = "quiz";
   quizDiv.appendChild(quizTitle);
@@ -19,6 +23,7 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizTitle.innerText = `Question ${num}`;
   quizDiv.appendChild(document.createElement("br"));
 
+  // text area for question
   const textareaQuestion = document.createElement("textarea");
   textareaQuestion.className = "textarea quiz_question";
   textareaQuestion.rows = 5;
@@ -28,10 +33,12 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
   quizDiv.appendChild(textareaQuestion);
   quizDiv.appendChild(document.createElement("br"));
 
+  // answer title
   const answerTitle = document.createElement("p");
   answerTitle.innerText = "Answer*";
   quizDiv.appendChild(answerTitle);
 
+  // creates div block that holds mc options
   const mc = document.createElement("div");
   mc.className = "mc";
   quizDiv.appendChild(mc);
@@ -43,11 +50,13 @@ const getQuestion = (num, question = "", options = [], answer = -1) => {
     container.appendChild(input);
     container.appendChild(textarea);
 
+    // radio button
     input.type = "radio";
     input.name = `q${num}`;
     input.required = true;
     input.checked = (i === answer);
 
+    // mc options
     textarea.className = "choice";
     textarea.rows = 1;
     textarea.cols = 30;
@@ -79,6 +88,7 @@ Or load an empty Question element
  */
 window.addEventListener("load", () => {
   let questions = JSON.parse(localStorage.getItem("questions"));
+  saveTxt.innerHTML = "Unsaved Changes";
   if (questions && questions.length !== 0) {
     console.log(questions);
     questionLen = 0;
@@ -89,11 +99,9 @@ window.addEventListener("load", () => {
       questionLen++;
     }
   }
-
   addQuestion(questionLen + 1);
   questionLen++;
 });
-
 
 /*
 Update localstorage
@@ -134,6 +142,7 @@ Add button click event
 addBtn.addEventListener("click", () => {
   addQuestion(questionLen + 1);
   questionLen++;
+  saveTxt.innerHTML = "Unsaved Changes";
   updateStorage();
 });
 
@@ -142,9 +151,9 @@ addBtn.addEventListener("click", () => {
 Save button click event
  */
 saveBtn.addEventListener("click", () => {
+  saveTxt.innerHTML = "Saved";
   updateStorage();
 });
-
 
 /*
 Delete button click event
@@ -156,3 +165,16 @@ deleteBtn.addEventListener("click", () => {
   questionLen--;
   updateStorage();
 });
+
+/*
+Autosaves contents every 2 seconds
+*/
+let saveTimer = setInterval(autoSave, 2000);
+
+/*
+Function for saving
+*/
+function autoSave() {
+  saveTxt.innerHTML = "Saved";
+  updateStorage();
+}
