@@ -19,13 +19,13 @@ http
     const entry = pathname.split("/")[4];
 
     if (entry === "writeFile") {
-      fs.writeFile("file.txt", query["text"], (err) => {
+        fs.appendFile("file.txt", query["text"], (err) => {
         if (err) {
           res.writeHead(404, {"Content-Type": "text/html"});
           return res.end("Fail to write file");
         } else {
           res.writeHead(200, {"Content-Type": "text/html"});
-          return res.end("File Created");
+          return res.end("Text appended to file");
         }
       });
     } else if (entry === "readFile") {

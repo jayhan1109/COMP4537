@@ -18,9 +18,9 @@ http
     const entry = pathname.split("/")[4];
 
     if (entry === "getDate") {
-      res.end(getDate(query["name"]));
+      return res.end(getDate(query["name"]));
     } else {
-      res.end("Wanna try to <a href='https://shielded-refuge-17332.herokuapp.com/COMP4537/labs/4/getDate/?name=Jay '>check time?</a>");
+      return res.end("Wanna try to <a href='https://jayhan-lab4.herokuapp.com/COMP4537/labs/4/getDate/?name=Jay'>check time?</a>");
     }
 
   })
